@@ -1,0 +1,148 @@
+%!TEX TS-program = pdflatex
+\documentclass[ngerman]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{stmaryrd}
+\usepackage{csquotes}
+\setbeamertemplate{navigation symbols}{}
+
+
+% https://tex.stackexchange.com/questions/339462/beamer-table-of-content-put-only-the-current-section-and-subsection-at-the-top
+\AtBeginSection{%
+    \begin{frame}
+\begin{center}
+        \LARGE\bfseries\tableofcontents[sections=\value{section}]
+\end{center}
+    \end{frame}
+}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{upquote=true}
+
+
+
+\lstdefinestyle{latex}{basicstyle=\ttfamily,morekeywords={usepackage,varobar,defbeamertemplate,definecolor,setbeamertemplate,usebeamertemplate,usetheme,gettwofromjobname,setbeamercolor,setbeamerfont,tiny,addtobeamertemplate,itshape,sffamily,twemoji}}
+
+\lstdefinestyle{latexf}{style=latex, language=[LaTeX]TeX,
+basicstyle=\ttfamily\footnotesize}
+
+
+\definecolor{colBack}{rgb}{1,1,0.9}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+
+\lstset{%
+    float=hbp,%
+    basicstyle=\ttfamily\footnotesize, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    columns=flexible, %
+    tabsize=2, %
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    breaklines=true, %
+    backgroundcolor=\color{colBack}, %
+    breakautoindent=true, %
+    captionpos=b,%
+    language={Python},
+    morekeywords={copyfile,write,unlink}
+}
+
+
+\usepackage[T1]{fontenc}
+
+\newcommand{\bild}[1]{\fbox{\includegraphics[width=0.2\textwidth]{Presentation-AnnArbor-#1}}}
+
+\author{Uwe Ziegenhagen}
+\title{Python \& pandas}
+\subtitle{A one day course}
+\institute{\url{github.com/UweZiegenhagen/OneDayPythonPandasCourse}}
+\date{Cologne, \today}
+
+
+\begin{document}
+
+\begin{frame}
+
+\maketitle
+
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\tableofcontents
+
+\end{frame}
+
+
+
+\end{document}
+
+
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\end{frame}
