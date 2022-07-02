@@ -2,9 +2,7 @@
 \documentclass[ngerman]{beamer}
 
 \usepackage[T1]{fontenc}
-\usepackage{textcomp}
 \usepackage{babel}
-\usepackage{stmaryrd}
 \usepackage{csquotes}
 \setbeamertemplate{navigation symbols}{}
 
@@ -93,17 +91,21 @@ basicstyle=\ttfamily\footnotesize}
 
 \section{Introduction}
 
-\begin{frame}
-\frametitle{}
+\begin{frame}[fragile]
+\frametitle{Why Python/pandas?}
 
 \begin{itemize}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
+	\item You \textit{have} a CSV-file with semicolon as column separator and comma as decimal separator
+	\item You \textit{need} a CSV-file with comma as column separator and dot as decimal separator
 \end{itemize}
+
+\begin{lstlisting}
+import pandas as pd
+
+df = pd.read_csv('myfile.csv', sep=';', decimal = ',')
+df = pd.to_csv('myfile.csv', sep=';', decimal = ',')
+\end{lstlisting}
+
 
 \end{frame}
 
@@ -114,35 +116,62 @@ basicstyle=\ttfamily\footnotesize}
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Python}
+
+\begin{itemize}
+	\item Invented by Guido van Rossum at the \enquote{Centrum Wiskunde \& Informatica} in Amsterdam as successor for the teaching language ABC
+	\item Current version is 3.11
+	\item For a long time, Python 3.x and Python 2.7 existed together
+	\item Python 2.7 support expired in 2019:
+	\item How to spot 2.7 code $\rightarrow$ \texttt{print 'hello'} instead of \texttt{print('hello')}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{pandas}
+
+\begin{itemize}
+	\item A Python library for data wrangling and management
+	\item Invented by Wes McKinney during his time at AQR Capital Management
+	\item In his own words:
+\enquote{I tell them that it enables people to analyze and work with data who are not expert computer scientists,} he says. \enquote{You still have to write code, but it’s making the code intuitive and accessible. It helps people move beyond just using Excel for data analysis.}\footnote{\url{qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/}}
+\end{itemize}
+
+\end{frame}
+
+\section{Python}
+
+\begin{frame}
+\frametitle{}
+
+
+\end{frame}
+
+\section{pandas}
+
+
+\section{Links}
+
+
+\begin{frame}
+\frametitle{Links}
+
+\begin{itemize}
+	\item \url{https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html}
+	\item \url{https://pandas.pydata.org}
+	\item 
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
 
 \end{document}
-
-
-\begin{frame}
-\frametitle{}
-
-\begin{itemize}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{}
-
-\begin{itemize}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-\end{itemize}
-
-\end{frame}
