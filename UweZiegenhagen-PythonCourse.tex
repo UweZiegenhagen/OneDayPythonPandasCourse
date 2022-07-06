@@ -134,6 +134,7 @@ df = pd.to_csv('myfile.csv', sep=';', decimal = ',')
 \frametitle{Limits of this Course}
 
 \begin{itemize}
+\item Basis for this course is a semester-long course I held at the FOM (\enquote{Fachhochschule für Ökonomie und Management}) in Cologne 
 \item It is not a \textit{full} course, we would need a whole week for this.
 \item We will skip many interesting things (that you do not necessarily need for your job)
 \item Goal: Teach you enough Python to a) read and b) understand Python-Code and c) write smaller programs relevant for your job 
@@ -316,29 +317,27 @@ while	&	with	&	yield	&		&		\\
 
 
 \begin{itemize}
-\item Integer (ganze Zahlen)
-\item Float (Fließkommazahlen)
-\item Zeichenketten
-\item Boolesche Werte
-\item Komplexe Zahlen
+\item Integer (integer numbers)
+\item Float (Floating point number)
+\item Strings
+\item Booleans
+\item Complex numbers
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Integer}
 
-
 \begin{itemize}
-\item unbegrenzte Länge, im Gegensatz zu anderen Sprachen
-\item dürfen nicht mit 0 beginnen, wenn es sich um Zahl im Dezimalsystem handeln soll
-\item Führende 0 bei Darstellung in Hexadezimal-, Binär- und Oktalsystem:
+\item unlimited length
+\item must not start with 0 if they shall represent decimal numbers 
+\item Leading 0 by representation in hex-, binary- or Octal system:
 \begin{description}
-\item[\texttt{0b/0B}] Binärzahl
-\item[\texttt{0x/0X}] Hexadezimalzahl
-\item[\texttt{0o/0O}] Oktalzahl 
+\item[\texttt{0b/0B}] binary
+\item[\texttt{0x/0X}] hex
+\item[\texttt{0o/0O}] octal
 \end{description}
-\item Funktionen \texttt{hex()}, \texttt{bin()}, \texttt{oct()} für Umwandlung in passenden String
-\item Interne Darstellung als Dezimalzahl
+\item Functions \texttt{hex()}, \texttt{bin()}, \texttt{oct()} for conversions into string, are internally represented as decimal numbers 
 \end{itemize}
 \end{frame}
 
@@ -346,10 +345,10 @@ while	&	with	&	yield	&		&		\\
 \frametitle{Float}
 
 \begin{itemize}
-	\item Fließkommazahlen
+	\item floating point numbers
 	\item \texttt{3.1415927}
 	\item \texttt{3.1e8}
-	\item Hinweis: Nicht jede Fließkommazahl kann genau dargestellt werden (\enquote{Floating-Point Arithmetic}) 
+	\item Hint: Not every floating point number can be represented \textit{exactly} (\enquote{Floating-Point Arithmetic}) 
 	\item \url{docs.python.org/3/tutorial/floatingpoint.html}
 \end{itemize}
 \end{frame}
@@ -358,39 +357,41 @@ while	&	with	&	yield	&		&		\\
 \frametitle{Strings}
 
 \begin{itemize}
-\item Doppelte oder einfache Anführungsstriche
-\item Mehrzeilige Strings:
+\item Single or double quotes
+\item For multiline strings:
 
 \begin{itemize}
-	\item Dreifache doppelte oder einfache Anführungsstriche
-	\item Alternativ Backslash am Ende der Zeile 
+	\item Triple double or single quotes
+	\item Alternatively backslash at the end of the line 
 \end{itemize}
 
-\item Zahlreiche Funktionen zur String-Verarbeitung, Details später
+\item Python has numerous functions for strings, more on this later
+\item Comments start with a hash \#
 \end{itemize}
 
 
-\begin{lstlisting}[language={Python}]
-a = "Ich bin ein String"
+\begin{lstlisting}[style=Python]
+a = "I am a string"
 
-b = 'Ich auch'
+b = 'me too'
 
-c = """Ich bin auch
-ein String"""
-# 'Ich bin auch\nein String'
+c = """I am 
+as string as well """
+
+# I am a comment
 \end{lstlisting}
 
 
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Boolesche Werte}
+\frametitle{Booleans}
 
 \begin{itemize}
-	\item Benannt nach George Boole
+	\item Named after George Boole
 	\item 1854: \enquote{An investigation into the Laws of Thought}
-	\item Herzstück moderner Computertechnik
-	\item Boolesche Operatoren or ($\cup$ ),  and ($\cap$ ), \texttt{not}
+	\item Essence of modern computing
+	\item Boolean operators or ($\cup$ ),  and ($\cap$ ), \texttt{not}
 \end{itemize}
 
 \begin{lstlisting}[language={Python}]
@@ -408,11 +409,11 @@ not a and b # False
 
 
 \begin{frame}[containsverbatim]
-\frametitle{Typumwandlungen}
+\frametitle{Type Conversions}
 
 \begin{itemize}
-\item Das Mischen von Strings und Float/Integer erfordert explizite Typumwandlung mittels \lstinline[language={Python}]{str()} Funktion
-\item Hinweis: pandas hat dazu \lstinline[morekeywords={astype},language={Python}]{.astype(<Datentyp>)} 
+\item Mixing strings and floats/integers requires explicit type conversion using the \lstinline[language={Python}]{str()} function
+\item Hint: pandas provides \lstinline[morekeywords={astype},language={Python}]{.astype(<Datatype>)} 
 \end{itemize}
 
 \begin{lstlisting}[language={Python}]
@@ -424,6 +425,12 @@ not a and b # False
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: can't multiply sequence by non-int of type 'str'
+
+>>> 'a' * 3
+'aaa'
+
+>>>3 * 'a'
+'aaa'
 \end{lstlisting}
 
 %\begin{center}
@@ -432,31 +439,29 @@ TypeError: can't multiply sequence by non-int of type 'str'
 
 \end{frame}
 
-\subsection{Funktionen}
+\subsection{Functions}
 
 
 \begin{frame}
-\frametitle{Funktionen}
+\frametitle{Functions}
 
 \begin{itemize}
-\item Bereits bekannte Funktionen:  \lstinline[language={Python}]{id()} ,
-\lstinline[language={Python}]{len()} 
-und \lstinline[language={Python}]{type()} 
-\item Funktion: Benannte Sequenz von Befehlen
-\item Zweck: Code kapseln, um mehrfachen Aufruf  zu erleichtern
-\item Können Argumente als Input bekommen, können Rückgabewerte zurückgeben
-\item Definition einer neuen Funktion:
+%\item Bereits bekannte Funktionen:  \lstinline[language={Python}]{id()} , \lstinline[language={Python}]{len()}  und \lstinline[language={Python}]{type()} 
+\item Functions: named sequence of commands
+\item Purpose: encapsule code for multiple calls
+\item Can take arguments as input, can have return values
+\item Define a new function as
 \begin{itemize}
-	\item Namen festlegen
-	\item Argumente festlegen
-	\item Befehlssequenz festlegen
+	\item Determine name
+	\item Determine arguments
+	\item Define function code
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen}
+\frametitle{Built-in Functions}
 
 \begin{tabular}{lllll}
 abs	&	delattr	&	hash	&	memoryview	&	set	\\
@@ -477,7 +482,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 \end{frame}
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen I}
+\frametitle{Built-in Functions I}
 
 * steht für \enquote{vermutlich keine Relevanz in der Vorlesung}
 
@@ -492,7 +497,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 \end{frame}
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen II}
+\frametitle{Built-in Functions II}
 
 \begin{description}
 \item[breakpoint()] im Debugging genutzt*
@@ -506,7 +511,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen III}
+\frametitle{Built-in Functions III}
 
 \begin{description}
 \item[compile()] übersetzt String in exec-baren Code*
@@ -520,7 +525,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen III}
+\frametitle{Built-in Functions III}
 
 \begin{description}
 \item[enumerate()] erzeugte Liste von Zahl, Item aus Iterables
@@ -534,7 +539,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen IV}
+\frametitle{Built-in Functions IV}
 
 \begin{description}
 \item[frozenset()] erzeugt unmutuable Set*
@@ -548,7 +553,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen V}
+\frametitle{Built-in Functions V}
 
 \begin{description}
 \item[hex()] Hexadezimaldarstellung
@@ -562,7 +567,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen VI}
+\frametitle{Built-in Functions VI}
 
 \begin{description}
 \item[iter()] iteriert über Sequenz
@@ -576,7 +581,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen VII}
+\frametitle{Built-in Functions VII}
 
 \begin{description}
 \item[memoryview()] gibt memoryview eines Objekts wieder*
@@ -590,7 +595,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen VIII}
+\frametitle{Built-in Functions VIII}
 
 \begin{description}
 \item[ord()] Inverse von chr(), gibt Zahl für Zeichen aus
@@ -604,7 +609,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen IX}
+\frametitle{Built-in Functions IX}
 
 \begin{description}
 \item[reversed()] gibt umgekehrte Sequence zurück
@@ -618,7 +623,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen X}
+\frametitle{Built-in Functions X}
 
 \begin{description}
 \item[staticmethod()] wandelt Methode in statische Methode um*
@@ -632,7 +637,7 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \begin{frame}
-\frametitle{Eingebaute Funktionen XI}
+\frametitle{Built-in Functions XI}
 
 \begin{description}
 \item[vars()] gibt dict-Attribut eines Objekts wider
