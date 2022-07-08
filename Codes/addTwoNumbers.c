@@ -1,13 +1,13 @@
     #include<stdio.h>
     long add(long a, long b){
-        long ergebnis;
-        ergebnis = a + b;
-        return ergebnis;}
+        long result;
+        result = a + b;
+        return result;}
 
     int main(){
        int a, b, c;
-       printf("Geben Sie zwei Zahlen ein\n");
+       printf("Enter two numbers\n");
        scanf("%d%d", &a, &b);
-       long meinergebnis = add(a,b);
-       printf("Summe der Zahlen = %d\n", meinergebnis);
+       long myresult = add(a,b);
+       printf("Sum of numbers = %d\n", myresult);
        return 0;}

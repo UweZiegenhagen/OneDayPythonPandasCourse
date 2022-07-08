@@ -310,7 +310,7 @@ while	&	with	&	yield	&		&		\\
 
 
 
-\subsection{Datentypen}
+\subsection{Datatypes}
 
 \begin{frame}
 \frametitle{Datentypen}
@@ -481,18 +481,425 @@ complex	&	hasattr	&	max	&	round	&		\\
 \end{tabular}
 \end{frame}
 
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Functions in C and Python}
+
+\lstinputlisting[language={C},caption={addTwoNumbers.c \ta{Codes/addTwoNumbers.c}}]{Codes/addTwoNumbers.c}\vspace*{-0.5em}
+
+\lstinputlisting[language={Python},caption={addTwoNumbers.py \ta{Codes/addTwoNumbers.py}}]{Codes/addTwoNumbers.py}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Simple Functions}
+\framesubtitle{Empty Functions}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{pass} is often used in the development process
+\item Useful, when parts of the code are not ready, yet
+\item without \lstinline[language={Python}]{pass} one gets \texttt{IndentationError: expected an indented block} error
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-12.py \ta{Codes/funktion-12.py}}]{Codes/funktion-12.py}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Simple Functions}
+
+\begin{itemize}
+	\item No parameter
+	\item No return value (\texttt{void})
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-01.py \ta{Codes/funktion-01.py}}]{Codes/funktion-01.py}
+
+\begin{ausgabe}
+Hello
+\end{ausgabe}
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Functions with Arguments}
+
+\begin{itemize}
+	\item Function with one argument \texttt{text} 
+	\item Error message, when argument is missing
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-02.py \ta{Codes/funktion-02.py}}]{Codes/funktion-02.py}
+
+\begin{ausgabe}
+Hello World!
+\end{ausgabe}
+
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Functions with Arguments}
+
+\begin{itemize}
+	\item Two arguments, \texttt{text} and \texttt{count}
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-03.py \ta{Codes/funktion-03.py}}]{Codes/funktion-03.py}
+
+\begin{ausgabe}
+
+Hello!
+Hello!Hello!Hello!
+
+\end{ausgabe}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Functions with Arguments}
+
+\begin{itemize}
+	\item Setting standard values for parameters
+	\item Allows calling the function without parameters
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-04.py \ta{Codes/funktion-04.py}}]{Codes/funktion-04.py}
+
+\begin{ausgabe}
+Hello CGNHello CGN
+Hello!Hello!
+Hello!Hello!Hello!
+\end{ausgabe}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Functiona with return values}
+
+\begin{itemize}
+	\item Functions can return values for further processing
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-05.py \ta{Codes/funktion-05.py}}]{Codes/funktion-05.py}
+
+\begin{ausgabe}
+HuhuHuhu
+\end{ausgabe}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Functions with multiple return values}
+
+\begin{itemize}
+	\item Functions can have more than one return value
+	\item Function then return tuples, an unmutuable list of values\footnote{more on this later}
+	\item Dealing with the tuple is called \enquote{Unpacking}
+	\item Remark: Parameter \texttt{sep} in the example is a parameter \newline of the \lstinline[language={Python}]{print()}  function
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-06.py \ta{Codes/funktion-06.py}}]{Codes/funktion-06.py}
+
+\vspace*{-1em}
+\begin{ausgabe}
+2>HuhuHuhu
+\end{ausgabe}
+\end{frame}
+
+\begin{frame}
+\frametitle{Functions with variable count of arguments}
+
+\begin{itemize}
+\item Parameter with *: variable count of arguments
+\item Parameter with **: variable count of key-value arguments
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={funktion-08.py \ta{Codes/funktion-08.py}}]{Codes/funktion-08.py}
+
+\lstinputlisting[language={Python},caption={funktion-09.py \ta{Codes/funktion-09.py}}]{Codes/funktion-09.py}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Kontrollfluss}
+
+\begin{frame}
+\frametitle{Kontrollfluss}
+
+englisch: \enquote{flow control}
+
+\begin{itemize}
+\item Eingabe \& Ausgabe
+\begin{itemize}
+	\item input
+	\item print
+\end{itemize}
+
+\item Verzweigungen
+\begin{itemize}
+	\item if else elif
+\end{itemize}
+
+\item Schleifen
+\begin{itemize}
+	\item for
+	\item while
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+%\begin{frame}[containsverbatim]
+%\frametitle{Ein- und Ausgabe}
+%
+%\begin{itemize}
+%\item \lstinline[language={Python}]{input()}, um von der Konsole zu lesen
+%\item Wchtig: \lstinline[language={Python}]{input()} liest nur Strings, numerische Werte müssen umgewandelt werden 
+%\item \lstinline[language={Python}]{print()} zur Ausgabe
+%\item Verschiedene Möglichkeiten, die Ausgabe zu formatieren (Siehe Kapitel \enquote{String-Bearbeitung})
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Verzweigungen}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{if <condition>:}
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={if-01.py \ta{Codes/if-01.py}} ]{Codes/if-01.py}
+
+\begin{ausgabe}
+Länger als 8 Zeichen!
+\end{ausgabe}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Verzweigungen}
+
+\begin{itemize}
+\item Es gibt kein \texttt{switch()} Konstrukt in Python
+\item \lstinline[language={Python}]{if} Statements können mehrfach verwandt werden
+\item ist aber nicht \enquote{pythonic}
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={if-02.py \ta{Codes/if-02.py}}]{Codes/if-02.py}
+
+\begin{ausgabe}
+Köln: Kürzer oder gleich als 8 Zeichen!
+Düsseldorf: Länger als 8 Zeichen!
+\end{ausgabe}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Verzweigungen}
+
+\begin{itemize}
+\item more \enquote{pythonic}:  \lstinline[language={Python}]{else:}
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={if-03.py \ta{Codes/if-03.py}}]{Codes/if-03.py}
+
+\begin{ausgabe}
+Köln: Kürzer oder gleich als 8 Zeichen!
+Düsseldorf: Länger als 8 Zeichen!
+\end{ausgabe}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Verzweigungen}
+
+\begin{itemize}
+\item Verschachteln von \lstinline[language={Python}]{if <condition>: else:} führt zu unübersichtlichem Code
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={if-04.py \ta{Codes/if-04.py}}]{Codes/if-04.py}
+
+\begin{ausgabe}
+Köln: Kürzer oder gleich als 5 Zeichen!
+Berlin: Länger als 5, kürzer als 8
+Düsseldorf: Länger als 8 Zeichen!
+\end{ausgabe}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Verzweigungen}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{if <condition>: else:} kann zu \lstinline[language={Python}]{elif:} abgekürzt werden
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={if-05.py \ta{Codes/if-05.py}}]{Codes/if-05.py}
+
+\begin{ausgabe}
+Köln: Kürzer oder gleich als 5 Zeichen!
+Berlin: Länger als 5, kürzer als 8
+Düsseldorf: Länger als 8 Zeichen!
+\end{ausgabe}
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Schleifen}
+\framesubtitle{\lstinline[language={Python}]{for}}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{for} Schleifen iterieren über eine Sequenz
+\item Sequenz kann String, Liste, etc. sein
+\item \lstinline[language={Python}]{range(start, ende, stepsize=1)} erzeugt numerische Sequenz von \texttt{start} bis unter (!) \texttt{ende} mit Schrittweite \texttt{stepsize}
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={for-01.py \ta{Codes/for-01.py}}]{Codes/for-01.py}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Schleifen}
+\framesubtitle{\lstinline[language={Python}]{while}}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{while} Loop läuft, bis Bedingung nicht mehr erfüllt ist
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={while-01.py \ta{Codes/while-01.py}}]{Codes/while-01.py}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Schleifen}
+\framesubtitle{\lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue}}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue} beeinflussen Schleifen
+\item \lstinline[language={Python}]{break} kann z.\,B. dazu genutzt werden, eine Schleife \newline vorzeitig zu verlassen
+\end{itemize}
+
+\lstinputlisting[language={Python},caption={while-02.py \ta{Codes/while-02.py}}]{Codes/while-02.py}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Schleifen}
+\framesubtitle{\lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue}}
+
+\begin{itemize}
+\item \lstinline[language={Python}]{continue} überspringt restliche Sequenz, setzt Schleife fort 
+\end{itemize}
+
+%\lstinputlisting[language={Python},caption={while-04.py \ta{Codes/while-04.py}}]{Codes/while-04.py}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{\lstinline[language={Python}]{for}  Schleifen mit \lstinline[language={Python}]{else}  Zweig}
+
+\begin{itemize}
+\item Python unterstützt \lstinline[language={Python}]{else}  Konstrukte in \lstinline[language={Python}]{for}  Schleifen
+\item Werden dann aufgerufen, wenn kein Abbruch durch \lstinline[language={Python}]{break}  erfolgt ist
+\item oftmals zusammen mit \lstinline[language={Python}]{if}  benutzt
+\item Grundlegende Syntax:\vspace*{0em}
+\end{itemize}
+
+\begin{lstlisting}[language={Python}]
+for item in container:
+    if search_something(item):
+        # Found it!
+        process(item)
+        break
+else:
+        # Didn't find anything..
+        not_found_in_container()
+\end{lstlisting} % # http://book.pythontips.com/en/latest/for_-_else.html
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{\lstinline[language={Python}]{while}  Schleifen mit \lstinline[language={Python}]{else}  Zweig}
+
+\begin{itemize}
+\item Python unterstützt auch \lstinline[language={Python}]{else}  Konstrukte in \lstinline[language={Python}]{while}  Schleifen
+\item der \lstinline[language={Python}]{else}  Zweig wird aufgerufen, wenn die \lstinline[language={Python}]{while}  Bedingung auf \lstinline[language={Python}]{False}  geht
+\item wird nicht aufgerufen bei \lstinline[language={Python}]{break}, \lstinline[language={Python}]{return} oder Exception
+\item Grundlegende Syntax:\vspace*{0em}
+\end{itemize}
+
+\begin{lstlisting}[language={Python}]
+while condition:
+    handle_true()
+else:
+    # condition is false now, handle and go on with the rest of the program
+    handle_false()
+\end{lstlisting}
+
+
+
+\end{frame}
+
+
+
+\section{pandas}
+
+
+\section{Links}
+
+
+\begin{frame}
+\frametitle{Links}
+
+\begin{itemize}
+	\item \url{https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html}
+	\item \url{https://pandas.pydata.org}
+	\item 
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+
+
+\end{frame}
+
+
+\end{document}
+
+
+\lstinline[style=Python]{input()}
+
+
+
 \begin{frame}
 \frametitle{Built-in Functions I}
 
-* steht für \enquote{vermutlich keine Relevanz in der Vorlesung}
+* means: \enquote{no relevance here}
 
 \begin{description}
-\item[abs()] Absolutwert einer Zahl
-\item[all()] prüft, ob alle Elemente eines iterable True sind*
-\item[any()] prüft, ob wenigstens Elemente eines iterable True ist*
-\item[ascii()] ASCII Darstellung eines Objekts
-\item[bin()] wandelt in Binärzahl um
-\item[bool()] gibt Boole'schen Wert für Ausdruck zurück 
+\item[abs()] absolute value of a number
+\item[all()] checks if all elements of an iterable are true *
+\item[any()] checks if at least any element of an iterable is true *
+\item[ascii()] ASCII representation of an object *
+\item[bin()] Conversion to binary
+\item[bool()] returns boolean value for expression *
 \end{description}
 \end{frame}
 
@@ -648,165 +1055,3 @@ complex	&	hasattr	&	max	&	round	&		\\
 
 
 \end{frame}
-
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen in C und Python}
-
-\lstinputlisting[language={C},caption={addTwoNumbers.c \ta{Codes/addTwoNumbers.c}}]{Codes/addTwoNumbers.c}\vspace*{-0.5em}
-
-\lstinputlisting[language={Python},caption={addTwoNumbers.py \ta{Codes/addTwoNumbers.py}}]{Codes/addTwoNumbers.py}
-
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-\frametitle{Einfache Funktionen}
-\framesubtitle{Leere Funktionen}
-
-\begin{itemize}
-\item \lstinline[language={Python}]{pass} wird oft genutzt, wenn Funktionen noch nicht fertig sind
-\item Sinnvoll, wenn z.\,B. zuerst das Grundgerüst einer Anwendung entworfen werden soll
-\item ohne \lstinline[language={Python}]{pass} kommt \texttt{IndentationError: expected an indented block} Fehler
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-12.py \ta{Codes/funktion-12.py}}]{Codes/funktion-12.py}
-
-\end{frame}
-
-
-\begin{frame}[containsverbatim]
-\frametitle{Einfache Funktionen}
-
-\begin{itemize}
-	\item Kein Parameter
-	\item Kein Rückgabewert (\texttt{void})
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-01.py \ta{Codes/funktion-01.py}}]{Codes/funktion-01.py}
-
-\begin{ausgabe}
-Hallo
-\end{ausgabe}
-
-\end{frame}
-
-
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen mit Argumenten}
-
-\begin{itemize}
-	\item Ein Argument \texttt{text} wird übergeben
-	\item Fehlermeldung, wenn Argument fehlt
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-02.py \ta{Codes/funktion-02.py}}]{Codes/funktion-02.py}
-
-\begin{ausgabe}
-Hallo FOM!
-\end{ausgabe}
-
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen mit Argumenten}
-
-\begin{itemize}
-	\item Zwei Argumente, \texttt{text} und \texttt{anzahl}, werden übergeben
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-03.py \ta{Codes/funktion-03.py}}]{Codes/funktion-03.py}
-
-\begin{ausgabe}
-
-Hallo FOM!
-Hallo FOM!Hallo FOM!Hallo FOM!
-
-\end{ausgabe}
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen mit Argumenten}
-
-\begin{itemize}
-	\item Setzen von Standardwerten für die Parameter
-	\item Erlaubt Aufruf der Funktion ohne Parameter
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-04.py \ta{Codes/funktion-04.py}}]{Codes/funktion-04.py}
-
-\begin{ausgabe}
-Hallo FOM!
-Hallo FOM!Hallo FOM!Hallo FOM!
-Hello Köln!
-Hello Köln!Hello Köln!
-\end{ausgabe}
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen mit Rückgabewerten}
-
-\begin{itemize}
-	\item Funktionen können Wert zur weiteren Verarbeitung zurückgeben
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-05.py \ta{Codes/funktion-05.py}}]{Codes/funktion-05.py}
-
-\begin{ausgabe}
-HuhuHuhu
-\end{ausgabe}
-
-\end{frame}
-
-
-\begin{frame}[containsverbatim]
-\frametitle{Funktionen mit mehreren Rückgabewerten}
-
-\begin{itemize}
-	\item Funktionen können mehr als einen Rückgabewert haben
-	\item Funktion liefert dann ein Tupel, eine unveränderliche Liste der Werte, zurück (dazu später mehr)
-	\item Art des Umgangs mit dem Tupel nennt man \enquote{Unpacking}
-	\item Hinweis: Parameter \texttt{sep} im Beispiel ist Parameter der\newline \lstinline[language={Python}]{print()}  Funktion
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={funktion-06.py \ta{Codes/funktion-06.py}}]{Codes/funktion-06.py}
-
-\vspace*{-1em}
-\begin{ausgabe}
-2>HuhuHuhu
-\end{ausgabe}
-\end{frame}
-
-
-
-\section{pandas}
-
-
-\section{Links}
-
-
-\begin{frame}
-\frametitle{Links}
-
-\begin{itemize}
-	\item \url{https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html}
-	\item \url{https://pandas.pydata.org}
-	\item 
-	\item 
-	\item 
-	\item 
-\end{itemize}
-
-
-
-\end{frame}
-
-
-\end{document}
-
-
-\lstinline[style=Python]{input()}
