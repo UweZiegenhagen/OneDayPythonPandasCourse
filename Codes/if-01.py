@@ -1,6 +1,6 @@
-def check_laenge(text):
+def check_length(text):
     if len(text)>8:
-        print('Länger als 8 Zeichen!')
+        print('Longer than 8 characters!')
         
-check_laenge('Köln')
-check_laenge('Düsseldorf')
+check_length('Köln')
+check_length('Düsseldorf')

@@ -627,29 +627,24 @@ HuhuHuhu
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Kontrollfluss}
+\subsection{Flow control}
 
 \begin{frame}
-\frametitle{Kontrollfluss}
-
-englisch: \enquote{flow control}
+\frametitle{Flow control}
 
 \begin{itemize}
-\item Eingabe \& Ausgabe
+\item Input \& Output
 \begin{itemize}
 	\item input
 	\item print
 \end{itemize}
 
-\item Verzweigungen
+\item Branching
 \begin{itemize}
 	\item if else elif
 \end{itemize}
 
-\item Schleifen
+\item Loops
 \begin{itemize}
 	\item for
 	\item while
@@ -658,19 +653,8 @@ englisch: \enquote{flow control}
 \end{itemize}
 \end{frame}
 
-%\begin{frame}[containsverbatim]
-%\frametitle{Ein- und Ausgabe}
-%
-%\begin{itemize}
-%\item \lstinline[language={Python}]{input()}, um von der Konsole zu lesen
-%\item Wchtig: \lstinline[language={Python}]{input()} liest nur Strings, numerische Werte müssen umgewandelt werden 
-%\item \lstinline[language={Python}]{print()} zur Ausgabe
-%\item Verschiedene Möglichkeiten, die Ausgabe zu formatieren (Siehe Kapitel \enquote{String-Bearbeitung})
-%\end{itemize}
-%\end{frame}
-
 \begin{frame}[containsverbatim]
-\frametitle{Verzweigungen}
+\frametitle{Branching}
 
 \begin{itemize}
 \item \lstinline[language={Python}]{if <condition>:}
@@ -679,30 +663,30 @@ englisch: \enquote{flow control}
 \lstinputlisting[language={Python},caption={if-01.py \ta{Codes/if-01.py}} ]{Codes/if-01.py}
 
 \begin{ausgabe}
-Länger als 8 Zeichen!
+Longer than 8 characters!
 \end{ausgabe}
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Verzweigungen}
+\frametitle{Branching}
 
 \begin{itemize}
-\item Es gibt kein \texttt{switch()} Konstrukt in Python
-\item \lstinline[language={Python}]{if} Statements können mehrfach verwandt werden
-\item ist aber nicht \enquote{pythonic}
+\item There is no \texttt{switch()} in Python
+\item \lstinline[language={Python}]{if} statements can be used multiple times
+\item maybe not the most pythonic approach
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={if-02.py \ta{Codes/if-02.py}}]{Codes/if-02.py}
 
 \begin{ausgabe}
-Köln: Kürzer oder gleich als 8 Zeichen!
-Düsseldorf: Länger als 8 Zeichen!
+Köln: Shorter or equal to 8 characters!
+Düsseldorf: Longer than 8 characters!
 \end{ausgabe}
 \end{frame}
 
 
 \begin{frame}[containsverbatim]
-\frametitle{Verzweigungen}
+\frametitle{Branching}
 
 \begin{itemize}
 \item more \enquote{pythonic}:  \lstinline[language={Python}]{else:}
@@ -711,61 +695,56 @@ Düsseldorf: Länger als 8 Zeichen!
 \lstinputlisting[language={Python},caption={if-03.py \ta{Codes/if-03.py}}]{Codes/if-03.py}
 
 \begin{ausgabe}
-Köln: Kürzer oder gleich als 8 Zeichen!
-Düsseldorf: Länger als 8 Zeichen!
+Köln: Shorter or equal to 8 characters!
+Düsseldorf: Longer than 8 characters!
 \end{ausgabe}
 
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Verzweigungen}
+\frametitle{Branching}
 
 \begin{itemize}
-\item Verschachteln von \lstinline[language={Python}]{if <condition>: else:} führt zu unübersichtlichem Code
+\item Nesting von \lstinline[language={Python}]{if <condition>: else:} leads to confusing code
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={if-04.py \ta{Codes/if-04.py}}]{Codes/if-04.py}
 
 \begin{ausgabe}
-Köln: Kürzer oder gleich als 5 Zeichen!
-Berlin: Länger als 5, kürzer als 8
-Düsseldorf: Länger als 8 Zeichen!
+Köln: Shorter or equal 5 chars!
+Berlin: Longer than 5, shorter than 8
+Düsseldorf: Longer than 8 chars!
 \end{ausgabe}
 
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Verzweigungen}
+\frametitle{Branching}
 
 \begin{itemize}
-\item \lstinline[language={Python}]{if <condition>: else:} kann zu \lstinline[language={Python}]{elif:} abgekürzt werden
+\item \lstinline[language={Python}]{if <condition>: else:} can be shortened to \lstinline[language={Python}]{elif:} 
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={if-05.py \ta{Codes/if-05.py}}]{Codes/if-05.py}
 
 \begin{ausgabe}
-Köln: Kürzer oder gleich als 5 Zeichen!
-Berlin: Länger als 5, kürzer als 8
-Düsseldorf: Länger als 8 Zeichen!
+Köln: Shorter or equal 5 chars!
+Berlin: Longer than 5, shorter than 8
+Düsseldorf: Longer than 8 chars!
 \end{ausgabe}
 
 
 \end{frame}
 
 
-
-
-
-
-
 \begin{frame}[containsverbatim]
-\frametitle{Schleifen}
+\frametitle{Loops}
 \framesubtitle{\lstinline[language={Python}]{for}}
 
 \begin{itemize}
-\item \lstinline[language={Python}]{for} Schleifen iterieren über eine Sequenz
-\item Sequenz kann String, Liste, etc. sein
-\item \lstinline[language={Python}]{range(start, ende, stepsize=1)} erzeugt numerische Sequenz von \texttt{start} bis unter (!) \texttt{ende} mit Schrittweite \texttt{stepsize}
+\item \lstinline[language={Python}]{for} loops iterate over a sequence
+\item sequence can be a string, a liste, etc. 
+\item \lstinline[language={Python}]{range(start, end, stepsize=1)} creates numerical sequence from \texttt{start} until below (!) \texttt{end} with step size \texttt{stepsize}
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={for-01.py \ta{Codes/for-01.py}}]{Codes/for-01.py}
@@ -774,11 +753,11 @@ Düsseldorf: Länger als 8 Zeichen!
 
 
 \begin{frame}[containsverbatim]
-\frametitle{Schleifen}
+\frametitle{Loops}
 \framesubtitle{\lstinline[language={Python}]{while}}
 
 \begin{itemize}
-\item \lstinline[language={Python}]{while} Loop läuft, bis Bedingung nicht mehr erfüllt ist
+\item \lstinline[language={Python}]{while} loop runs, until condition is not fulfilled anymore
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={while-01.py \ta{Codes/while-01.py}}]{Codes/while-01.py}
@@ -786,75 +765,18 @@ Düsseldorf: Länger als 8 Zeichen!
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Schleifen}
-\framesubtitle{\lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue}}
+\frametitle{Loops}
+\framesubtitle{\lstinline[language={Python}]{break} and \lstinline[language={Python}]{continue}}
 
 \begin{itemize}
-\item \lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue} beeinflussen Schleifen
-\item \lstinline[language={Python}]{break} kann z.\,B. dazu genutzt werden, eine Schleife \newline vorzeitig zu verlassen
+\item \lstinline[language={Python}]{break} and \lstinline[language={Python}]{continue} influence loops
+\item \lstinline[language={Python}]{break} can e.\,g. be used to exit a loop 
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={while-02.py \ta{Codes/while-02.py}}]{Codes/while-02.py}
 
 \end{frame}
 
-\begin{frame}[containsverbatim]
-\frametitle{Schleifen}
-\framesubtitle{\lstinline[language={Python}]{break} und \lstinline[language={Python}]{continue}}
-
-\begin{itemize}
-\item \lstinline[language={Python}]{continue} überspringt restliche Sequenz, setzt Schleife fort 
-\end{itemize}
-
-%\lstinputlisting[language={Python},caption={while-04.py \ta{Codes/while-04.py}}]{Codes/while-04.py}
-
-\end{frame}
-
-\begin{frame}[containsverbatim]
-\frametitle{\lstinline[language={Python}]{for}  Schleifen mit \lstinline[language={Python}]{else}  Zweig}
-
-\begin{itemize}
-\item Python unterstützt \lstinline[language={Python}]{else}  Konstrukte in \lstinline[language={Python}]{for}  Schleifen
-\item Werden dann aufgerufen, wenn kein Abbruch durch \lstinline[language={Python}]{break}  erfolgt ist
-\item oftmals zusammen mit \lstinline[language={Python}]{if}  benutzt
-\item Grundlegende Syntax:\vspace*{0em}
-\end{itemize}
-
-\begin{lstlisting}[language={Python}]
-for item in container:
-    if search_something(item):
-        # Found it!
-        process(item)
-        break
-else:
-        # Didn't find anything..
-        not_found_in_container()
-\end{lstlisting} % # http://book.pythontips.com/en/latest/for_-_else.html
-
-\end{frame}
-
-
-\begin{frame}[containsverbatim]
-\frametitle{\lstinline[language={Python}]{while}  Schleifen mit \lstinline[language={Python}]{else}  Zweig}
-
-\begin{itemize}
-\item Python unterstützt auch \lstinline[language={Python}]{else}  Konstrukte in \lstinline[language={Python}]{while}  Schleifen
-\item der \lstinline[language={Python}]{else}  Zweig wird aufgerufen, wenn die \lstinline[language={Python}]{while}  Bedingung auf \lstinline[language={Python}]{False}  geht
-\item wird nicht aufgerufen bei \lstinline[language={Python}]{break}, \lstinline[language={Python}]{return} oder Exception
-\item Grundlegende Syntax:\vspace*{0em}
-\end{itemize}
-
-\begin{lstlisting}[language={Python}]
-while condition:
-    handle_true()
-else:
-    # condition is false now, handle and go on with the rest of the program
-    handle_false()
-\end{lstlisting}
-
-
-
-\end{frame}
 
 
 

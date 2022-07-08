@@ -1,12 +1,12 @@
-def check_laenge(text):
+def check_length(text):
     if len(text)>8:
-        print(text, 'Länger als 8 Zeichen!', sep=': ')
+        print(text, 'Longer than 8 chars!', sep=': ')
     else:
         if len(text)<=5:
-            print(text, 'Kürzer oder gleich als 5 Zeichen!', sep=': ')
+            print(text, 'Shorter or equal 5 chars!', sep=': ')
         else:
-            print(text, 'Länger als 5, kürzer als 8', sep=': ')
+            print(text, 'Longer than 5, shorter than 8', sep=': ')
         
-check_laenge('Köln')
-check_laenge('Berlin')
-check_laenge('Düsseldorf')
+check_length('Köln')
+check_length('Berlin')
+check_length('Düsseldorf')
