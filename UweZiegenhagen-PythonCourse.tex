@@ -1320,11 +1320,22 @@ merged \\
 \end{column}
 \end{columns}}
 
-
-
 \end{frame}
 
 
+
+\begin{frame}[containsverbatim]
+\frametitle{Loop through DataFrames}
+
+\lstinputlisting[language={Python}]{Codes/pandas-looping-01.py}
+
+\begin{ausgabe}
+K0 belongs to Anna
+K1 belongs to Bernd
+K2 belongs to Cesar
+K4 belongs to Dana
+\end{ausgabe}
+\end{frame}
 
 \section{Links}
 
@@ -1351,172 +1362,3 @@ merged \\
 
 \lstinline[style=Python]{input()}
 
-
-
-\begin{frame}
-\frametitle{Built-in Functions I}
-
-* means: \enquote{no relevance here}
-
-\begin{description}
-\item[abs()] absolute value of a number
-\item[all()] checks if all elements of an iterable are true *
-\item[any()] checks if at least any element of an iterable is true *
-\item[ascii()] ASCII representation of an object *
-\item[bin()] Conversion to binary
-\item[bool()] returns boolean value for expression *
-\end{description}
-\end{frame}
-
-\begin{frame}
-\frametitle{Built-in Functions II}
-
-\begin{description}
-\item[breakpoint()] im Debugging genutzt*
-\item[bytearray()] erzeugt Array of Bytes*
-\item[bytes()] erzeugt neues Byte-Objekt*
-\item[callable()] Prüfung, ob Objekt aufrufbar ist*
-\item[chr()] Unicode-String-Repräsentation einer Zahl
-\item[classmethod()] wandelt Methode in Klassenmethode um*
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions III}
-
-\begin{description}
-\item[compile()] übersetzt String in exec-baren Code*
-\item[complex()] erzeugt komplexe Zahl*
-\item[delattr()] löscht Attribut aus Objekt
-\item[dict()] erstellt ein dictionary Objekt
-\item[dir()] Variablenliste im aktuellen Scope
-\item[divmod()] gibt Tupel aus Integer Division und Rest zurück
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions III}
-
-\begin{description}
-\item[enumerate()] erzeugte Liste von Zahl, Item aus Iterables
-\item[eval()] parst und führt String-Ausdruck aus
-\item[exec()] führt dynamisch erzeugten Code aus
-\item[filter()] genutzt in funktionaler Programmierung
-\item[float()] erstellt float aus Zahl oder String
-\item[format()] erstellt formatierten String
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions IV}
-
-\begin{description}
-\item[frozenset()] erzeugt unmutuable Set*
-\item[getattr()] gibt Wert von Attribut eines Objekts zurück
-\item[globals()] gibt dict der globalen Symboltabelle zurück
-\item[hasattr()] prüft ob Objekt ein Attribut hat
-\item[hash()] gibt integer Hash-Wert für Objekt zurück
-\item[help()] ruft die Hilfe auf
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions V}
-
-\begin{description}
-\item[hex()] Hexadezimaldarstellung
-\item[id()] Gibt die interne ID eines Objekts zurück
-\item[input()] liest von der Tastatur einen String
-\item[int()] erzeugt integer aus Zahl oder String
-\item[isinstance()] prüft, ob Objekt von Typ x ist
-\item[issubclass()] prüft, ob Klasse Subklasse von x ist
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions VI}
-
-\begin{description}
-\item[iter()] iteriert über Sequenz
-\item[len()] Länge eines Objekt
-\item[list()] erzeugt Liste
-\item[locals()] erzeugt Update für die 
-\item[map()] genutzt in funktionaler Programmierung
-\item[max()] gibt Maximum zurück
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions VII}
-
-\begin{description}
-\item[memoryview()] gibt memoryview eines Objekts wieder*
-\item[min()] gibt Minimum zurück
-\item[next()] gibt nächstes Objekt von Iterator zurück
-\item[object()] gibt neues Objekt zurück*
-\item[oct()] Oktaldarstellung einer Zahl*
-\item[open()] öffnet Datei zum Lesen/Schreiben
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions VIII}
-
-\begin{description}
-\item[ord()] Inverse von chr(), gibt Zahl für Zeichen aus
-\item[pow()] analog zu x**y
-\item[print()] gibt Objekte aus auf Kommandozeile, in Datei
-\item[property()] gibt Property-Attribut aus*
-\item[range()] erzeugt eine Zahlenliste
-\item[repr()] gibt ASCII-Repräsentation eines Objekts wieder*
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions IX}
-
-\begin{description}
-\item[reversed()] gibt umgekehrte Sequence zurück
-\item[round()] rundet Zahl
-\item[set()] erstellt Menge
-\item[setattr()] Gegenstück zu getattr()
-\item[slice()] gibt slice-Objekt zurück*
-\item[sorted()] gibt sortierte Liste zurück
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions X}
-
-\begin{description}
-\item[staticmethod()] wandelt Methode in statische Methode um*
-\item[str()] erzeugt String aus Objekt
-\item[sum()] berechnet Summe aus 
-\item[super()] gibt Proxy-Objekt zurück*
-\item[tuple()] erzeugt Tupel aus Iterable
-\item[type()] gibt Typ eines Objekts wieder
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Built-in Functions XI}
-
-\begin{description}
-\item[vars()] gibt dict-Attribut eines Objekts wider
-\item[zip()] aggregiert iterables in einen Iterator
-\item[\textunderscore \textunderscore import()\textunderscore \textunderscore] Funktion zum Anpassen von import-Statements*
-\end{description}
-
-
-
-\end{frame}
