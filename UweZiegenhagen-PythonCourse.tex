@@ -586,7 +586,7 @@ Hello!Hello!Hello!
 \end{frame}
 
 \begin{frame}[containsverbatim]
-\frametitle{Functiona with return values}
+\frametitle{Functions with return values}
 
 \begin{itemize}
 	\item Functions can return values for further processing
@@ -785,6 +785,335 @@ Düsseldorf: Longer than 8 chars!
 \end{frame}
 
 
+\subsection{File-Operations}
+
+\begin{frame}[containsverbatim]
+\frametitle{File-Operations}
+
+\begin{itemize}
+\item \texttt{open()} opens file for read/write access
+\item two parameters:
+
+\begin{description}
+\item[Path] Path to the file
+\item[Mode] Read, Write, Binary, Text
+\end{description}
+\end{itemize}
+
+\begin{lstlisting}[language=Python,caption={Simple example for \texttt{write()}}]
+f = open('u:/hello.txt', 'w')
+f.write("Hello World!")
+f.close()
+\end{lstlisting}
+
+Not optimal, in case of errors the file-handle might remain open!
+
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{File-Operations}
+
+Improved version, uses \enquote{Context manager}, closes file handle in each situation
+
+\begin{lstlisting}[language=Python,caption={Improved example for \texttt{write()}}]
+with open('r:/hello.txt', 'w') as f:
+    f.write("Hello World!")
+\end{lstlisting}
+
+Hint: Context managers are useful to deal with databases.
+
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{File-Operations}
+
+Read-/Write- parameters
+
+\begin{description}
+\item [r] Read; Error, when file is not present
+\item [r+] Read and Write
+\item [a+] Read and append, file is created if not existent
+\item [x] Creates file, error if file exists
+\item [a] Append; creates file if not existent, appends at the end
+\item [w] Write; creates file if not existent; overwrite, if file exists
+\end{description}
+
+Content format
+
+\begin{description}
+\item[t] for text files
+\item[b] for binary files (images, zip, etc)
+\end{description}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{File-Operations}
+
+\begin{lstlisting}[language=Python,caption={Read a complete file}]
+with open('r:/hello.txt', 'rt') as file:  
+    print(file.read())
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={Row-wise reading a file}]
+with open('r:/hello.txt', 'rt') as file:  
+    for line in file:
+        print(x)
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{File-Operations}
+\framesubtitle{Deleting files}
+
+\begin{lstlisting}[language=Python,caption={Deleting a file}]
+import os
+if os.path.exists('r:/hello.txt'):
+    os.remove('r:/hello.txt')
+else:
+    print("File does not exist!")   
+\end{lstlisting}
+
+\end{frame}
+
+\subsection{Ranges and Strings}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{The \texttt{range()} Function}
+
+\begin{itemize}
+\item \texttt{range()} function creates a sequence of numbers via \texttt{generator}$\Rightarrow$ see next slide
+\item Three parameters maximum : \texttt{start}, \texttt{stop} and \texttt{step}
+\item \texttt{range(<stop>)} with one parameter,  \texttt{range(0,<stop>,1)} implicitly
+\item \texttt{range(<start>, <stop>)} with two parameters, \texttt{<start>,<stop>,1)} implicitly 
+\item \texttt{range(<start>,<stop>,<step>)} with three parameters
+\item Wichtig: \texttt{<start>} is inclusive, \texttt{<stop>} not!!!
+\item \texttt{range(0,10)} runs from 0 to 9
+\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Examples for \texttt{range()}-Function}
+
+\lstinputlisting[basicstyle=\ttfamily\tiny,language={Python},caption={range\textunderscore beispiel.py \ta{codes/range_beispiel.py}}]{codes/range_beispiel.py}
+
+\begin{ausgabe}
+1: 0	1 1	1 2	1 3	1 4	1 5	1 6	1 7	1 8	1 9
+2: 2	2 3	2 4	2 5	2 6	2 7	2 8	2 9		
+3: 2	3 4	3 6	3 8						
+4: 10	4 8	4 6	4 4	4 2	4 0	4 -2	4 -4	4 -6	4 -8
+\end{ausgabe}
+
+\end{frame}
+
+
+\subsection{Sequential Datatypes}
+
+\begin{frame}
+\frametitle{Sequential Datatypes}
+
+\begin{itemize}
+\item Sequential Datatypes = Datatypes that store elements sequentially
+
+\begin{description}
+\item[Strings] contain characters only
+\item[Lists] different objects possible, mutuable (changeable)
+\item[Tupel] different objects possible, not mutuable \newline (not changeable)
+\end{description}
+\item Identical methods for the access: \lstinline[language={Python}]{objekt[<Zahl>]} to access a specific element, \lstinline[language={Python}]{len()} for the length, Slicing-Notation
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strings}
+
+\begin{itemize}
+\item Single or double quotation marks
+\item Notation mit \texttt{'''} resp. \texttt{''''''} used in documentations, allows multi-line strings
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{List of Escape-Sequences (Extract)}
+
+\begin{itemize}
+	\item Various characters must be  \enquote{escaped} 
+	\item Complete list here: \url{docs.python.org/3/reference/lexical_analysis.html}
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{c|l}
+Character & Description \\ \toprule
+\textbackslash \textbackslash & Backslash \\
+\textbackslash t & Tabulator \\
+\textbackslash n & Linebreak \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+	\item Prevent expansion by \enquote{raw} statement:
+	\item \lstinline[language={Python}]{print(r'Hello\\nWorld')}, used e.\,g. with regular expressions
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{String Functions}
+
+\begin{itemize}
+\item Numerous string-functions are available, see \url{https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str} 
+\item Length of a string using \lstinline[language={Python}]{len(<String>)}
+\item Upper- or lowercase a string with \lstinline[language={Python}]{upper(<String>)} and \lstinline[language={Python}]{lower(<String>)}
+\item \lstinline[language={Python}]{index(<String>)}, \lstinline[language={Python}]{find(<String>)} and \lstinline[language={Python}]{replace(<String>)}
+\item \lstinline[language={Python}]{startswith(<String>)} and \lstinline[language={Python}]{endwith(<String>)}
+\item \lstinline[language={Python}]{split(<String>)} and \lstinline[language={Python}]{strip(<String>)}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Lists}
+
+\begin{itemize}
+\item Lists contain arbitrary objects
+\item Square brackets, elements separated by comma
+\item Can be nested
+\item Can be changed at runtime $\Rightarrow$ \enquote{mutuable}
+\end{itemize}
+
+\begin{lstlisting}[language={Python}]
+abc = ['a', 'b', 'c', 3.1234]
+efg = [1, 2, [1, 2, 3], 3, 4]
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Tupel}
+
+\begin{itemize}
+\item Round brackets, can be left out
+\item Recommendation: do not leave them out
+\item Immutable, objects cannot be changed after creation
+\item can be unpacked via multi-assignment: \lstinline[language={Python}]{a, b, c = (1, 2, 3)}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Indexing Sequential Datatypes}
+
+\begin{itemize}
+	\item Two ways of indexing: von \(0 \text{ bis } n-1\) and \(-n \text{ bis } -1\)
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{r|c|c|c|c|c|c|c|c|c|c|c|}
+Index & -11 & -10 & -9 & -8 & -7 & -6 & -5 & -4 & -3 & -2 & -1 \\ \toprule
+&H&e&l&l&o& &W&o&r&l&d \\ \toprule
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \toprule
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Slicing}
+
+\begin{itemize}
+\item Slicing = very powerful, especially for strings
+\item two parameters, start and stop, separated by \texttt{:}, both are optional
+\item third parameter: step size
+\end{itemize}\vspace*{0em}
+
+\begin{lstlisting}[language={Python}]
+>>> a = 'Hello World'
+>>> a[:]
+'Hello World'
+>>> a[1:-1]
+'ello Worl'
+>>> a[1:-5]
+'ello '
+>>> a[::1]
+'Hello World'
+>>> a[::2]
+'HloWrd'
+>>> a[1:-1:3]
+'eoo'
+>>>a[::-1]
+\end{lstlisting}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dictionaries}
+
+\begin{itemize}
+\item Dictionaries = Assoziative Felder, Maps, Hashes
+\item bestehen aus Key-Value Paaren, jedem Schlüssel (\enquote{Key}) ist ein Wert (\enquote{Value}) zugeordnet
+\item jeder Key darf nur einmal vorhanden sein
+\item können beliebig wachsen und schrumpfen
+\item Schlüssel können alle immutable Objekte sein: Strings, Floats, Integer, Tupel, keine Listen oder Dictionaries
+\item Dictionaries lassen sich auch verschachteln
+\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Dictionaries}
+
+\pypy{dict-01.py}{Codes/dict-01.py}
+
+\begin{ausgabe}
+Tree
+Januar
+\end{ausgabe}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Zugriff auf Inhalte eines Dictionary}
+
+\vspace*{-0.5em}\pypy{dict-04.py}{Codes/dict-04.py}
+
+\vspace*{-0.5em}\begin{ausgabe}
+dict_keys([1, 2, 3])
+dict_values(['one', 'two', 'three'])
+dict_items([(1, 'one'), (2, 'two'), (3, 'three')])
+None
+three
+1 one
+2 two
+3 three
+\end{ausgabe}
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Methoden auf Dictionaries (Auswahl)}
+
+\begin{description}
+\item[\texttt{clear()}] löscht alle Einträge
+\item[\texttt{copy()}] erzeugt flache Kopie (\enquote{flat copy})
+\item[\texttt{keys()}] Menge aller Keys
+\item[\texttt{pop()}] entfernt Key und seinen Value aus D.
+\item[\texttt{update()}] fügt D2 zu D hinzu, überschreibt ggfalls Values
+\item[\texttt{popitem()}] entfernt beliebiges Key-Value-Paar aus D, KeyError falls D leer ist. Wichtig: \enquote{beliebig} ist nicht \enquote{zufällig}!
+\end{description}
+
+\end{frame}
+
 
 
 \section{pandas}
@@ -958,7 +1287,6 @@ print(list(customers))    # list of columns
 \begin{frame}
 \frametitle{Aufgabe}
 
-%\fomh{Aufgabe:}
 
 \begin{itemize}
 \item Read the files \texttt{Bestandsdaten.csv}, \texttt{Bestandsdaten\textunderscore Vortag.csv}  and \texttt{Bewertung.xlsx} 
