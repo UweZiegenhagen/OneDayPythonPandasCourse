@@ -1,6 +1,6 @@
 import pandas as pd
 
-def mach_gross(text):
+def capitalizeColumn(text):
     return text.capitalize()
 
 df = pd.DataFrame({'Key': ['K0','K1','K2','K4'],
@@ -8,6 +8,6 @@ df = pd.DataFrame({'Key': ['K0','K1','K2','K4'],
 
 print(df)
 
-df['Nachname'] = df['Name'].apply(mach_gross)
+df['Nachname'] = df['Name'].apply(capitalizeColumn)
 
 print(df)

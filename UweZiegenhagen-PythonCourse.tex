@@ -141,7 +141,7 @@ basicstyle=\ttfamily\footnotesize}
 import pandas as pd
 
 df = pd.read_csv('myfile.csv', sep=';', decimal = ',')
-df = pd.to_csv('myfile.csv', sep=';', decimal = ',')
+df = pd.to_csv('myfile_new.csv', sep=',', decimal = '.')
 \end{lstlisting}
 
 
@@ -152,9 +152,9 @@ df = pd.to_csv('myfile.csv', sep=';', decimal = ',')
 
 \begin{itemize}
 \item Basis for this course is a semester-long course I held at the FOM (\enquote{Fachhochschule für Ökonomie und Management}) in Cologne 
-\item It is not a \textit{full} course, we would need a whole week for this.
-\item We will skip many interesting things (that you do not necessarily need for your job)
+\item It is not a \textit{full} Python \& pandas course, we would need a whole week or more for this.
 \item Goal: Teach you enough Python to a) read and b) understand Python-Code and c) write smaller programs relevant for your job 
+\item We will skip many interesting things (that you do not necessarily need for your job)
 \end{itemize}
 \end{frame}
 
@@ -1035,19 +1035,29 @@ print(list(customers))    # list of columns
 
 
 \begin{frame}[fragile]
-\frametitle{Mapping}
+\frametitle{Mapping I}
 
 \begin{itemize}
-\item 
-\item 
-\item 
-\item 
-\item 
-\item 
+	\item Similar to Excel's \texttt{vlookup()} function
+	\item Example: \texttt{countries} is a key-value dictionary
+	\item \texttt{country} column in the dataframe is used as key in the dictionary, a new column is created
 \end{itemize}
+
+\lstinputlisting[language={Python}]{Codes/mapping-01.py}
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Mapping II}
+
+\begin{itemize}
+	\item \texttt{map()} can also be used to make simple calculations
+	\item keyword here is \enquote{lambda} $\Rightarrow$ anonymous function	
+\end{itemize}
+
+\lstinputlisting[language={Python}]{Codes/mapping-02.py}
+
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Pandas Dataframe Operations}
@@ -1063,7 +1073,7 @@ print(list(customers))    # list of columns
 	\item Inner
 	\item Full Outer
 \end{itemize}
-\item \texttt{join()} is a special alias for \texttt{merge()},  works on the index, not the columns
+\item \texttt{join()} is a special alias for \texttt{merge()},  works on \newline the index, not the columns
 \end{itemize}
 
 \end{frame}
