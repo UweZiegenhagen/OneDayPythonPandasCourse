@@ -1402,16 +1402,6 @@ print(list(customers))    # list of columns
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Aufgabe}
-
-
-\begin{itemize}
-\item Read the files \texttt{Bestandsdaten.csv}, \texttt{Bestandsdaten\textunderscore Vortag.csv}  and \texttt{Bewertung.xlsx} 
-\item Check the data using the functions from last slide
-\item Export the data to HTML, which columns could be used to connect the data sets with eachother?
-\end{itemize}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Pandas Dataframe Operations}
@@ -1779,7 +1769,6 @@ merged \\
 \end{frame}
 
 
-
 \begin{frame}[containsverbatim]
 \frametitle{Loop through DataFrames}
 
@@ -1793,25 +1782,89 @@ K4 belongs to Dana
 \end{ausgabe}
 \end{frame}
 
-\section{Links}
 
+
+\section{Real-World Python}
 
 \begin{frame}
-\frametitle{Links}
+\frametitle{Realworld Python}
+
+Let us look at the existing code (with increasing complexity):\vspace*{1em}
 
 \begin{itemize}
-	\item \url{https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html}
-	\item \url{https://pandas.pydata.org}
-	\item 
-	\item 
-	\item 
-	\item 
+\item Converta (CSV2Excel)
+\item FileCombiner
+\item FileStructureRenamer
+\item SQL-Statement-Writer
+\item XML2CSV
+\item XMLchecker
+\item ConsistencyChecker
+\item BDB-XML Comparer
+\end{itemize}
+\end{frame}
+
+\section{Creating files with jinja2}
+
+\begin{frame}
+\frametitle{Jinja2}
+
+\begin{itemize}
+\item Example: you need to create XML files from Excel to test something
+\item Elegant way: use a template engine like jinja2
+\item Allows to separate the template code from the program code
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Some basic jinja}
+
+
+\lstinputlisting[language={Python}]{Codes/jinja2-01.py}
+
+\begin{itemize}
+	\item Standard Python way looks easier, but\ldots
+	\item When it gets more complex, jinja2 wins!
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power}
+
+We have an Excel file:\vspace*{1em}
+
+\fbox{\includegraphics[width=\textwidth]{Pictures/Excel-1024x596.png}}
 
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power}
+
+and need an XML file:\vspace*{1em}
+
+\fbox{\includegraphics[width=\textwidth]{Pictures/XML.png}}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power}
+
+We define a template \texttt{template.xml} that contains some Jinja2 magic:
+
+\lstinputlisting[language={XML}]{Codes/template.xml}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power}
+
+\lstinputlisting[language={Python}]{Codes/jinja2-02.py}
+
+$\Rightarrow$ It takes less than a second to write 10K rows!
+
+\end{frame}
 
 \end{document}
 

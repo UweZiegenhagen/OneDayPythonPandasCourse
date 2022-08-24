@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+	<table name="Tablename">
+	{% for _,row in data.iterrows() %}
+	<ROW>
+    <COLUMN1>{{row['column1']}}</COLUMN1>
+    <COLUMN2>{{row['column2']}}</COLUMN2>
+    <COLUMN3>{{row['column3']}}</COLUMN3>
+	</ROW>
+	{% endfor %}
+</table>
