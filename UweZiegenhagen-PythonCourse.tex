@@ -34,7 +34,7 @@
 \AtBeginSection{%
     \begin{frame}
 \begin{center}
-        \LARGE\bfseries\tableofcontents[sections=\value{section}]
+        \bfseries\tableofcontents[sections=\value{section}]
 \end{center}
     \end{frame}
 }
@@ -50,7 +50,8 @@
 \lstdefinestyle{latexf}{style=latex, language=[LaTeX]TeX,
 basicstyle=\ttfamily\footnotesize}
 
-\lstdefinestyle{Python}{language=Python,basicstyle=\ttfamily\footnotesize,morekeywords={read_csv}}
+\lstdefinestyle{Python}{language=Python,basicstyle=\ttfamily\footnotesize,
+morekeywords={read_csv,index,split}}
 
 \usepackage{attachfile}
 \newcommand{\ta}[1]{\textattachfile[color=1 0 0]{#1}{Code}}
@@ -135,15 +136,26 @@ basicstyle=\ttfamily\footnotesize}
 \begin{itemize}
 	\item You \textit{have} a CSV-file with semicolon as column separator and comma as decimal separator
 	\item You \textit{need} a CSV-file with comma as column separator and dot as decimal separator
-\end{itemize}
+
 
 \begin{lstlisting}
 import pandas as pd
 
 df = pd.read_csv('myfile.csv', sep=';', decimal = ',')
-df = pd.to_csv('myfile_new.csv', sep=',', decimal = '.')
+df.to_csv('myfile_new.csv', sep=',', decimal = '.')
 \end{lstlisting}
 
+	\item Or: You need an Excel-file:
+
+
+\begin{lstlisting}
+import pandas as pd
+
+df = pd.read_csv('myfile.csv', sep=';', decimal = ',')
+df.to_excel('myfile_new.xlsx', index=FALSE)
+\end{lstlisting}
+
+\end{itemize}
 
 \end{frame}
 
@@ -151,9 +163,9 @@ df = pd.to_csv('myfile_new.csv', sep=',', decimal = '.')
 \frametitle{Limits of this Course}
 
 \begin{itemize}
-\item Basis for this course is a semester-long course I held at the FOM (\enquote{Fachhochschule für Ökonomie und Management}) in Cologne 
-\item It is not a \textit{full} Python \& pandas course, we would need a whole week or more for this.
-\item Goal: Teach you enough Python to a) read and b) understand Python-Code and c) write smaller programs relevant for your job 
+\item Basis for this tutorial is a course I held at the FOM (\enquote{Fachhochschule für Ökonomie und Management}) in Cologne 
+\item It is not a \textit{full} Python \& pandas course, we would need a whole week or more\ldots
+\item Goal: give you an overview of Python and to teach you enough Python to a) read and b) understand Python-Code and c) write smaller programs relevant for your job 
 \item We will skip many interesting things (that you do not necessarily need for your job)
 \end{itemize}
 \end{frame}
@@ -172,6 +184,7 @@ df = pd.to_csv('myfile_new.csv', sep=',', decimal = '.')
 
 \begin{itemize}
 	\item Invented by Guido van Rossum at the \enquote{Centrum Wiskunde \& Informatica} in Amsterdam as successor for the teaching language ABC
+	\item Published in 1991, so it is quite a bit older than Java (1995)
 	\item Current version is 3.11
 	\item For a long time, Python 3.x and Python 2.7 existed together
 	\item Python 2.7 support expired in 2019:
@@ -183,13 +196,12 @@ df = pd.to_csv('myfile_new.csv', sep=',', decimal = '.')
 \begin{frame}
 \frametitle{Python versus Java \& C}
 
-Python code is often much slower than C or Java but\ldots
+Python code is often much slower than C or Java but: \vspace*{1em}
 
 \begin{itemize}
 \item the implementation time for Python is way faster
 \item speeds only matters sometimes, not always
 \item many computing-intensive Python modules use\newline C/C++ modules \enquote{under the hood}
-\item bad C-Code is slower than good Python-code
 \end{itemize}
 \end{frame}
 
@@ -247,14 +259,30 @@ Out[1]: 0
 In [2]: 5%2 # Modulo
 Out[2]: 1
 
-In [3]: 3**3
+In [3]: 3**3 # Power
 Out[3]: 27
 
 In [4]: 5//2
 Out[4]: 2
 \end{lstlisting}
 
+By the way: \texttt{\#} indicates a comment
+
 \end{frame}
+
+\begin{frame}
+\frametitle{Exercise 1}
+
+
+\begin{itemize}
+\item Start Spyder
+\item Run some basic calculations in the Console window
+\item Put them also in a Python file and run them from there using F5 and F9
+\item What is the difference between using F5 or F9?
+\end{itemize}
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Priority of Operators}
@@ -266,9 +294,9 @@ Out[4]: 2
 \item followed by addition and substraction
 \end{itemize}
 
-\begin{block}{TODO4U:}
-$\Rightarrow$ Solve exercise sheet 1!
-\end{block}
+%\begin{block}{TODO4U:}
+%$\Rightarrow$ Solve exercise sheet 1!
+%\end{block}
 
 \end{frame}
 
@@ -278,12 +306,50 @@ $\Rightarrow$ Solve exercise sheet 1!
 \lstinputlisting[style=Python]{Codes/Basic_IO.py}
 
 \begin{itemize}
+	\item Strings use either single or double quotation marks
 	\item \lstinline[style=Python]{input()} only reads strings	
-	\item If you need a number, you need to convert it
+	\item If you need to process a number, you need to convert it 
 	\item there are better ways than \lstinline[style=Python]{print()} for logging, but it works\ldots 
 	\item f-Strings (last row) are recommended for mixed output!
 	\end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Exercise 2}
+
+\begin{itemize}
+\item The formula to convert degrees Celsius to \newline degrees Fahrenheit is
+
+\[  (c \times 1.8) + 32 \] with $c$ as the value in Celsius
+
+\item Write some code that 
+
+\begin{itemize}
+	\item asks a celsius-value from the user
+	\item converts it into Fahrenheit 
+	\item stores the result in a variable
+	\item prints the result using f-Strings
+	\item Hint: to convert the string into a \newline floating-point number, use \texttt{float(<string>)}
+	\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Basic Input \& Output - Raw Strings}
+
+\begin{itemize}
+	\item Certain characters need to be escaped
+	\item A list is e.\,g. here: \url{https://www.w3schools.com/python/gloss_python_escape_characters.asp} 
+	\item Raw strings can be used to prevent (most) processing, simply put an \enquote{r} before the string\footnote{A raw string must not end with a backslash}
+	\end{itemize}
+
+\lstinputlisting[style=Python]{Codes/rawStrings.py}
+
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Rules for Variables}
@@ -291,8 +357,8 @@ $\Rightarrow$ Solve exercise sheet 1!
 \begin{itemize}
 \item must start with a letter or \textunderscore
 \item Case-sensitivity: 'A' is not 'a'
-\item Recommendation: small letters
-\item Let them speak for themselves: 'diameter' is good, 'd' is bad 
+\item For naming conventions see \url{https://realpython.com/python-pep8/}
+\item Most important hint: let them speak for themselves: 'diameter' is good, 'd' is bad 
 \end{itemize}
 \end{frame}
 
@@ -300,7 +366,7 @@ $\Rightarrow$ Solve exercise sheet 1!
 \begin{frame}
 \frametitle{Reserved Keywords}
 
-The following  keywords are reserviert and must not be used for variables' names.
+The following  keywords are reserved and must not be used to name variables:
 
 \begin{center}
 \begin{tabular}{p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}}
@@ -320,7 +386,7 @@ while	&	with	&	yield	&		&		\\
 \subsection{Datatypes}
 
 \begin{frame}
-\frametitle{Datentypen}
+\frametitle{Datatypes}
 
 
 \begin{itemize}
@@ -356,7 +422,9 @@ while	&	with	&	yield	&		&		\\
 	\item \texttt{3.1415927}
 	\item \texttt{3.1e8}
 	\item Hint: Not every floating point number can be represented \textit{exactly} (\enquote{Floating-Point Arithmetic}) 
+	\item This can get tricky, if you compare numbers for equality
 	\item \url{docs.python.org/3/tutorial/floatingpoint.html}
+
 \end{itemize}
 \end{frame}
 
@@ -420,7 +488,8 @@ not a and b # False
 
 \begin{itemize}
 \item Mixing strings and floats/integers requires explicit type conversion using the \lstinline[language={Python}]{str()} function
-\item Hint: pandas provides \lstinline[morekeywords={astype},language={Python}]{.astype(<Datatype>)} 
+%\item Hint: pandas provides \lstinline[morekeywords={astype},language={Python}]{.astype(<Datatype>)} 
+\item Use \texttt{int()} and \texttt{float()} to convert from string to number
 \end{itemize}
 
 \begin{lstlisting}[language={Python}]
@@ -456,7 +525,7 @@ TypeError: can't multiply sequence by non-int of type 'str'
 %\item Bereits bekannte Funktionen:  \lstinline[language={Python}]{id()} , \lstinline[language={Python}]{len()}  und \lstinline[language={Python}]{type()} 
 \item Functions: named sequence of commands
 \item Purpose: encapsule code for multiple calls
-\item Can take arguments as input, can have return values
+\item \textit{Can} take arguments as input, \textit{can} have return values
 \item Define a new function as
 \begin{itemize}
 	\item Determine name
@@ -489,13 +558,33 @@ complex	&	hasattr	&	max	&	round	&		\\
 \end{frame}
 
 
+%
+%\begin{frame}[containsverbatim]
+%\frametitle{Functions in C and Python}
+%
+%\lstinputlisting[language={C},caption={addTwoNumbers.c \ta{Codes/addTwoNumbers.c}}]{Codes/addTwoNumbers.c}\vspace*{-0.5em}
+%
+%\lstinputlisting[language={Python},caption={addTwoNumbers.py \ta{Codes/addTwoNumbers.py}}]{Codes/addTwoNumbers.py}
+%
+%\end{frame}
+
 
 \begin{frame}[containsverbatim]
-\frametitle{Functions in C and Python}
+\frametitle{Simple Functions with any parameter}
 
-\lstinputlisting[language={C},caption={addTwoNumbers.c \ta{Codes/addTwoNumbers.c}}]{Codes/addTwoNumbers.c}\vspace*{-0.5em}
+\begin{itemize}
+	\item \texttt{def} starts function definition
+	\item do not forget \texttt{:} at the end of the \texttt{def} line
+	\item indent the code inside the function using tabulator\footnote{Spyder expands it to four space characters}
+	\item No input parameter in round brackets
+	\item No return value (\texttt{void})
+\end{itemize}
 
-\lstinputlisting[language={Python},caption={addTwoNumbers.py \ta{Codes/addTwoNumbers.py}}]{Codes/addTwoNumbers.py}
+\lstinputlisting[language={Python},caption={funktion-01.py \ta{Codes/funktion-01.py}}]{Codes/funktion-01.py}
+
+\begin{ausgabe}
+Hello
+\end{ausgabe}
 
 \end{frame}
 
@@ -514,21 +603,6 @@ complex	&	hasattr	&	max	&	round	&		\\
 \end{frame}
 
 
-\begin{frame}[containsverbatim]
-\frametitle{Simple Functions}
-
-\begin{itemize}
-	\item No parameter
-	\item No return value (\texttt{void})
-\end{itemize}
-
-\lstinputlisting[language={Python},caption={funktion-01.py \ta{Codes/funktion-01.py}}]{Codes/funktion-01.py}
-
-\begin{ausgabe}
-Hello
-\end{ausgabe}
-
-\end{frame}
 
 
 
@@ -546,8 +620,9 @@ Hello
 Hello World!
 \end{ausgabe}
 
-
 \end{frame}
+
+
 
 \begin{frame}[containsverbatim]
 \frametitle{Functions with Arguments}
@@ -601,8 +676,28 @@ HuhuHuhu
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Exercise 3}
+
+\begin{itemize}
+\item Use the code from the temperature conversion 
+\item create a function for the conversion from Celsius to Fahrenheit
+\item Call the function multiple times
+\end{itemize}
+\end{frame}
+
 \begin{frame}[containsverbatim]
-\frametitle{Functions with multiple return values}
+\frametitle{Solution for Exercise 3}
+
+
+\lstinputlisting[language={Python},caption={c2f-function \ta{Codes/funktion-05.py}}]{Codes/c2f_function.py}
+
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Info: Functions with multiple return values}
 
 \begin{itemize}
 	\item Functions can have more than one return value
@@ -620,7 +715,7 @@ HuhuHuhu
 \end{frame}
 
 \begin{frame}
-\frametitle{Functions with variable count of arguments}
+\frametitle{Info: Functions with variable count of arguments}
 
 \begin{itemize}
 \item Parameter with *: variable count of arguments
@@ -640,7 +735,7 @@ HuhuHuhu
 \frametitle{Flow control}
 
 \begin{itemize}
-\item Input \& Output
+\item Input \& Output \checkmark
 \begin{itemize}
 	\item input
 	\item print
@@ -678,7 +773,7 @@ Longer than 8 characters!
 \frametitle{Branching}
 
 \begin{itemize}
-\item There is no \texttt{switch()} in Python
+\item There is no \texttt{switch()} in Python < 3.10\footnote{From 3.10 there is \texttt{match}/\texttt{case}, see \url{stackoverflow.com/questions/11479816/}}
 \item \lstinline[language={Python}]{if} statements can be used multiple times
 \item maybe not the most pythonic approach
 \end{itemize}
@@ -806,9 +901,7 @@ f.write("Hello World!")
 f.close()
 \end{lstlisting}
 
-Not optimal, in case of errors the file-handle might remain open!
-
-
+Not optimal, in case of errors the file-handle might remain open! The file is not usable by other applications.
 \end{frame}
 
 
@@ -822,9 +915,22 @@ with open('r:/hello.txt', 'w') as f:
     f.write("Hello World!")
 \end{lstlisting}
 
-Hint: Context managers are useful to deal with databases.
+Hint: Context managers are also very useful when dealing with SQL databases.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise 4: Files and Branching}
 
 
+\begin{itemize}
+\item Ask the user to input a number
+\item If the number < 0 write \enquote{Hello} to a text file
+\item If the number > 0 write \enquote{World} to a text file
+\item If the number = 0 write \enquote{Foobar} to a text file
+\item Open the file and printout the file on the screen
+\item Delete the created file afterwards
+\end{itemize}
 \end{frame}
 
 \begin{frame}[containsverbatim]
@@ -874,6 +980,7 @@ with open('r:/hello.txt', 'rt') as file:
 
 \begin{lstlisting}[language=Python,caption={Deleting a file}]
 import os
+
 if os.path.exists('r:/hello.txt'):
     os.remove('r:/hello.txt')
 else:
@@ -895,7 +1002,7 @@ else:
 \item \texttt{range(<stop>)} with one parameter,  \texttt{range(0,<stop>,1)} implicitly
 \item \texttt{range(<start>, <stop>)} with two parameters, \texttt{<start>,<stop>,1)} implicitly 
 \item \texttt{range(<start>,<stop>,<step>)} with three parameters
-\item Wichtig: \texttt{<start>} is inclusive, \texttt{<stop>} not!!!
+\item Important: \texttt{<start>} is inclusive, \texttt{<stop>} not!!!
 \item \texttt{range(0,10)} runs from 0 to 9
 \end{itemize}
 \end{frame}
@@ -918,7 +1025,7 @@ else:
 \subsection{Sequential Datatypes}
 
 \begin{frame}
-\frametitle{Sequential Datatypes}
+\frametitle{Sequential Datatypes aka: for i in whatever}
 
 \begin{itemize}
 \item Sequential Datatypes = Datatypes that store elements sequentially
@@ -926,50 +1033,50 @@ else:
 \begin{description}
 \item[Strings] contain characters only
 \item[Lists] different objects possible, mutuable (changeable)
-\item[Tupel] different objects possible, not mutuable \newline (not changeable)
+\item[Tuple] different objects possible, not mutuable \newline (not changeable)
 \end{description}
-\item Identical methods for the access: \lstinline[language={Python}]{objekt[<Zahl>]} to access a specific element, \lstinline[language={Python}]{len()} for the length, Slicing-Notation
+\item Identical methods for the access: \lstinline[language={Python}]{object[<number>]} to access a specific element, \lstinline[language={Python}]{len()} for the length, Slicing-Notation
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Strings}
-
-\begin{itemize}
-\item Single or double quotation marks
-\item Notation mit \texttt{'''} resp. \texttt{''''''} used in documentations, allows multi-line strings
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{List of Escape-Sequences (Extract)}
-
-\begin{itemize}
-	\item Various characters must be  \enquote{escaped} 
-	\item Complete list here: \url{docs.python.org/3/reference/lexical_analysis.html}
-\end{itemize}
-
-\begin{center}
-\begin{tabular}{c|l}
-Character & Description \\ \toprule
-\textbackslash \textbackslash & Backslash \\
-\textbackslash t & Tabulator \\
-\textbackslash n & Linebreak \\ \bottomrule
-\end{tabular}
-\end{center}
-
-\begin{itemize}
-	\item Prevent expansion by \enquote{raw} statement:
-	\item \lstinline[language={Python}]{print(r'Hello\\nWorld')}, used e.\,g. with regular expressions
-\end{itemize}
-
-\end{frame}
+%\begin{frame}
+%\frametitle{Strings}
+%
+%\begin{itemize}
+%\item Single or double quotation marks
+%\item Notation mit \texttt{'''} resp. \texttt{''''''} used in documentations, allows multi-line strings
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{List of Escape-Sequences (Extract)}
+%
+%\begin{itemize}
+%	\item Various characters must be  \enquote{escaped} 
+%	\item Complete list here: \url{docs.python.org/3/reference/lexical_analysis.html}
+%\end{itemize}
+%
+%\begin{center}
+%\begin{tabular}{c|l}
+%Character & Description \\ \toprule
+%\textbackslash \textbackslash & Backslash \\
+%\textbackslash t & Tabulator \\
+%\textbackslash n & Linebreak \\ \bottomrule
+%\end{tabular}
+%\end{center}
+%
+%\begin{itemize}
+%	\item Prevent expansion by \enquote{raw} statement:
+%	\item \lstinline[language={Python}]{print(r'Hello\\nWorld')}, used e.\,g. with regular expressions
+%\end{itemize}
+%
+%\end{frame}
 
 \begin{frame}[containsverbatim]
 \frametitle{String Functions}
 
 \begin{itemize}
-\item Numerous string-functions are available, see \url{https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str} 
+\item Numerous string-functions are available, see \url{docs.python.org/3/library/stdtypes.html#text-sequence-type-str} 
 \item Length of a string using \lstinline[language={Python}]{len(<String>)}
 \item Upper- or lowercase a string with \lstinline[language={Python}]{upper(<String>)} and \lstinline[language={Python}]{lower(<String>)}
 \item \lstinline[language={Python}]{index(<String>)}, \lstinline[language={Python}]{find(<String>)} and \lstinline[language={Python}]{replace(<String>)}
@@ -979,12 +1086,15 @@ Character & Description \\ \toprule
 
 \end{frame}
 
+
+
 \begin{frame}[containsverbatim]
 \frametitle{Lists}
 
 \begin{itemize}
 \item Lists contain arbitrary objects
 \item Square brackets, elements separated by comma
+\item first element is \texttt{listname[0]}
 \item Can be nested
 \item Can be changed at runtime $\Rightarrow$ \enquote{mutuable}
 \end{itemize}
@@ -997,13 +1107,14 @@ efg = [1, 2, [1, 2, 3], 3, 4]
 \end{frame}
 
 \begin{frame}
-\frametitle{Tupel}
+\frametitle{Tuples}
 
 \begin{itemize}
 \item Round brackets, can be left out
 \item Recommendation: do not leave them out
 \item Immutable, objects cannot be changed after creation
 \item can be unpacked via multi-assignment: \lstinline[language={Python}]{a, b, c = (1, 2, 3)}
+\item hint: switch two numbers by \lstinline[language={Python}]{a, b = b, a}
 \end{itemize}
 \end{frame}
 
@@ -1011,7 +1122,7 @@ efg = [1, 2, [1, 2, 3], 3, 4]
 \frametitle{Indexing Sequential Datatypes}
 
 \begin{itemize}
-	\item Two ways of indexing: von \(0 \text{ bis } n-1\) and \(-n \text{ bis } -1\)
+	\item Two ways of indexing: from \(0 \text{ to } n-1\) and \(-n \text{ to } -1\)
 \end{itemize}
 
 \begin{center}
@@ -1050,20 +1161,27 @@ Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \toprule
 >>>a[::-1]
 \end{lstlisting}
 
-
 \end{frame}
 
+\begin{frame}
+\frametitle{Exercise 5: String manipulation}
+
+\begin{itemize}
+\item Ask the user to input a file name, or alternatively: use the filenames in a directory of your choice
+\item print the filename without the file extension as well as the file extension separately
+\end{itemize}
+\end{frame}
 
 \begin{frame}
 \frametitle{Dictionaries}
 
 \begin{itemize}
-\item Dictionaries = Assoziative Felder, Maps, Hashes
-\item bestehen aus Key-Value Paaren, jedem Schlüssel (\enquote{Key}) ist ein Wert (\enquote{Value}) zugeordnet
-\item jeder Key darf nur einmal vorhanden sein
-\item können beliebig wachsen und schrumpfen
-\item Schlüssel können alle immutable Objekte sein: Strings, Floats, Integer, Tupel, keine Listen oder Dictionaries
-\item Dictionaries lassen sich auch verschachteln
+\item Dictionaries = Associative fields, maps, hashes
+\item consist of Key-Value pairs, for each (\enquote{Key}) a (\enquote{Value}) is assigned
+\item each key must only exist once in each dict
+\item can arbitrarily grow and shrink
+\item all immutable objects can be keys: strings, floats, integers, tuples, but no lists or dictionaries
+\item Dictionaries can be nested (well, if you ever need this, think again\ldots)
 \end{itemize}
 \end{frame}
 
@@ -1081,7 +1199,7 @@ Januar
 
 
 \begin{frame}[containsverbatim]
-\frametitle{Zugriff auf Inhalte eines Dictionary}
+\frametitle{Accessing a Dictionary}
 
 \vspace*{-0.5em}\pypy{dict-04.py}{Codes/dict-04.py}
 
@@ -1101,15 +1219,15 @@ three
 
 
 \begin{frame}[containsverbatim]
-\frametitle{Methoden auf Dictionaries (Auswahl)}
+\frametitle{Functions for Dictionaries (Selection)}
 
 \begin{description}
-\item[\texttt{clear()}] löscht alle Einträge
-\item[\texttt{copy()}] erzeugt flache Kopie (\enquote{flat copy})
-\item[\texttt{keys()}] Menge aller Keys
-\item[\texttt{pop()}] entfernt Key und seinen Value aus D.
-\item[\texttt{update()}] fügt D2 zu D hinzu, überschreibt ggfalls Values
-\item[\texttt{popitem()}] entfernt beliebiges Key-Value-Paar aus D, KeyError falls D leer ist. Wichtig: \enquote{beliebig} ist nicht \enquote{zufällig}!
+\item[\texttt{clear()}] deletes all entries
+\item[\texttt{copy()}] creates a flat copy
+\item[\texttt{keys()}] set of all keys
+\item[\texttt{pop()}] removes key and its value from dict
+\item[\texttt{update()}] adds dict2 to dict, overwrites values eventually
+\item[\texttt{popitem()}] removes arbitrary key-value combination from dict, KeyError if dict is empty. Important: \enquote{arbitrary} $\not=$ {random}!
 \end{description}
 
 \end{frame}
@@ -1136,7 +1254,7 @@ three
 \frametitle{Das SciPy Framework}
 \framesubtitle{~}
 
-\texttt{pandas} is just a piece among many
+\texttt{pandas} is just a piece among many:\vspace*{1em}
 
 \begin{description}
 \item[NumPy] Matrices, vectors, algorithms
@@ -1146,7 +1264,7 @@ three
 \item [\ldots] etc, etc
 \end{description}\vspace*{0.5em}
 
-We only focus on \texttt{pandas}:
+We only focus on \texttt{pandas} today:
 
 \begin{lstlisting}
 import pandas as pd
