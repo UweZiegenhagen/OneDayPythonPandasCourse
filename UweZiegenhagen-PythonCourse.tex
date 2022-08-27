@@ -117,7 +117,7 @@ morekeywords={read_csv,index,split}}
 \title{Python \& pandas}
 \subtitle{A one day course}
 \institute{\url{github.com/UweZiegenhagen/OneDayPythonPandasCourse}}
-\date{Cologne, 2022-08-26}
+\date{Cologne, \today}
 
 
 \begin{document}
@@ -166,7 +166,7 @@ df.to_excel('myfile_new.xlsx', index=FALSE)
 \item Basis for this tutorial is a course I held at the FOM (\enquote{Fachhochschule für Ökonomie und Management}) in Cologne 
 \item It is not a \textit{full} Python \& pandas course, we would need a whole week or more\ldots
 \item Goal: give you an overview of Python and to teach you enough Python to a) read and b) understand Python-Code and c) write smaller programs relevant for your job 
-\item We will skip many interesting things (that you do not necessarily need for your job)
+\item We will skip many interesting things 
 \end{itemize}
 \end{frame}
 
@@ -184,7 +184,7 @@ df.to_excel('myfile_new.xlsx', index=FALSE)
 
 \begin{itemize}
 	\item Invented by Guido van Rossum at the \enquote{Centrum Wiskunde \& Informatica} in Amsterdam as successor for the teaching language ABC
-	\item Published in 1991, so it is quite a bit older than Java (1995)
+	\item Published in 1991, so it is even older than Java (1995)
 	\item Current version is 3.11
 	\item For a long time, Python 3.x and Python 2.7 existed together
 	\item Python 2.7 support expired in 2019:
@@ -205,16 +205,13 @@ Python code is often much slower than C or Java but: \vspace*{1em}
 \end{itemize}
 \end{frame}
 
-
-
-
 \section{Python}
 
 \begin{frame}
 \frametitle{Spyder}
 
 \begin{itemize}
-	\item We will use the Spyder5 IDE with Python 3.9.9, make sure it is installed
+	\item We will use the Spyder5 IDE, make sure it is installed
 \end{itemize}
 
 \begin{center}
@@ -227,7 +224,8 @@ Python code is often much slower than C or Java but: \vspace*{1em}
 \frametitle{Python as a Calculator}
 
 \begin{itemize}
-\item Spyder5 runs an IPython kernel, this runs our programs
+\item Spyder5 runs an IPython kernel
+\item in this kernel we run our programs
 \item We can also use it as a calculator
 \end{itemize}
 
@@ -287,6 +285,8 @@ By the way: \texttt{\#} indicates a comment
 \begin{frame}
 \frametitle{Priority of Operators}
 
+The priority of operators is standard:
+
 \begin{itemize}
 \item Round brackets have highest priority
 \item followed by Power
@@ -310,7 +310,7 @@ By the way: \texttt{\#} indicates a comment
 	\item \lstinline[style=Python]{input()} only reads strings	
 	\item If you need to process a number, you need to convert it 
 	\item there are better ways than \lstinline[style=Python]{print()} for logging, but it works\ldots 
-	\item f-Strings (last row) are recommended for mixed output!
+	\item f-Strings (last row) are recommended for mixed output!\footnote{Hint: Do not mix logic and output, keep it clean!}
 	\end{itemize}
 \end{frame}
 
@@ -595,7 +595,7 @@ Hello
 \begin{itemize}
 \item \lstinline[language={Python}]{pass} is often used in the development process
 \item Useful, when parts of the code are not ready, yet
-\item without \lstinline[language={Python}]{pass} one gets \texttt{IndentationError: expected an indented block} error
+\item without \lstinline[language={Python}]{pass} you get  \enquote{\texttt{IndentationError: expected an indented block}} error
 \end{itemize}
 
 \lstinputlisting[language={Python},caption={funktion-12.py \ta{Codes/funktion-12.py}}]{Codes/funktion-12.py}
@@ -682,7 +682,7 @@ HuhuHuhu
 \begin{itemize}
 \item Use the code from the temperature conversion 
 \item create a function for the conversion from Celsius to Fahrenheit
-\item Call the function multiple times
+\item Call the function multiple times for different degrees
 \end{itemize}
 \end{frame}
 
@@ -929,7 +929,7 @@ Hint: Context managers are also very useful when dealing with SQL databases.
 \item If the number > 0 write \enquote{World} to a text file
 \item If the number = 0 write \enquote{Foobar} to a text file
 \item Open the file and printout the file on the screen
-\item Delete the created file afterwards
+\item Delete the created file afterwards (Use e.\,g. the \texttt{os} module)
 \end{itemize}
 \end{frame}
 
@@ -967,7 +967,7 @@ with open('r:/hello.txt', 'rt') as file:
 \begin{lstlisting}[language=Python,caption={Row-wise reading a file}]
 with open('r:/hello.txt', 'rt') as file:  
     for line in file:
-        print(x)
+        print(line)
 \end{lstlisting}
 
 \end{frame}
@@ -1448,8 +1448,6 @@ print(list(customers))    # list of columns
 
 \lstinline[language={Python}]{df = df[~df['b'].isin(['A','I'])]}
 
-\item More here: \url{http://chrisalbon.com/python/pandas_indexing_selecting.html}
-
 \end{itemize}
 \end{frame}
 
@@ -1792,26 +1790,26 @@ K4 belongs to Dana
 
 
 
-\section{Real-World Python}
-
-\begin{frame}
-\frametitle{Realworld Python}
-
-Let us look at the existing code (with increasing complexity):\vspace*{1em}
-
-\begin{itemize}
-\item ecb XML reader
-\item Converta (CSV2Excel)
-\item FileCombiner
-\item Hasha - Hashsum calculator
-\item FileStructureRenamer
-\item SQL-Statement-Writer
-\item XML2CSV
-\item XMLchecker
-\item ConsistencyChecker
-\item BDB-XML Comparer
-\end{itemize}
-\end{frame}
+%\section{Real-World Python}
+%
+%\begin{frame}
+%\frametitle{Realworld Python}
+%
+%Let us look at the existing code (with increasing complexity):\vspace*{1em}
+%
+%\begin{itemize}
+%\item ecb XML reader
+%\item Converta (CSV2Excel)
+%\item FileCombiner
+%\item Hasha - Hashsum calculator
+%\item FileStructureRenamer
+%\item SQL-Statement-Writer
+%\item XML2CSV
+%\item XMLchecker
+%\item ConsistencyChecker
+%\item BDB-XML Comparer
+%\end{itemize}
+%\end{frame}
 
 \section{Creating files with jinja2}
 
