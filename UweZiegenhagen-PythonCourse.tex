@@ -1,5 +1,5 @@
 %!TEX TS-program = pdflatex
-\documentclass[ngerman]{beamer}
+\documentclass[english]{beamer}
 
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -117,7 +117,7 @@ morekeywords={read_csv,index,split}}
 \title{Python \& pandas}
 \subtitle{A one day course}
 \institute{\url{github.com/UweZiegenhagen/OneDayPythonPandasCourse}}
-\date{Cologne, \today}
+\date{Last change: \today}
 
 
 \begin{document}
@@ -1837,7 +1837,7 @@ K4 belongs to Dana
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Jinja2 Power}
+\frametitle{Jinja2 Power -- Writing XML}
 
 We have an Excel file:\vspace*{1em}
 
@@ -1847,7 +1847,7 @@ We have an Excel file:\vspace*{1em}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Jinja2 Power}
+\frametitle{Jinja2 Power -- Writing XML}
 
 and need an XML file:\vspace*{1em}
 
@@ -1857,7 +1857,7 @@ and need an XML file:\vspace*{1em}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Jinja2 Power}
+\frametitle{Jinja2 Power -- Writing XML}
 
 We define a template \texttt{template.xml} that contains some Jinja2 magic:
 
@@ -1866,13 +1866,40 @@ We define a template \texttt{template.xml} that contains some Jinja2 magic:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Jinja2 Power}
+\frametitle{Jinja2 Power -- Writing XML}
 
 \lstinputlisting[language={Python}]{Codes/jinja2-02.py}
 
 $\Rightarrow$ It takes less than a second to write 10K rows!
 
+$\Rightarrow$ We can also use this to create JSON-files\ldots
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power -- Using Flow Control and Filters }
+
+\begin{itemize}
+	\item We can also use the Jinja-internal flow control
+	\item Jinja also offers filters to manipulate the rendering, here we capitalize the word
+\end{itemize}
+
+\lstinputlisting[language={Python}]{Codes/Anschreiben.txt}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Jinja2 Power -- Using Flow Control and Filters }
+
+\begin{itemize}
+	\item Everything was implemented on the template level, the rendering is standard
+\end{itemize}
+
+\lstinputlisting[language={Python}]{Codes/jinja2-03.py}
+
+\end{frame}
+
+
+
 
 \end{document}
 

@@ -1,0 +1,5 @@
+{% if sex == 'f' -%}
+Sehr geehrte Frau {{ Nachname | capitalize }}
+{% else -%}
+Sehr geehrter Herr {{ Nachname }}
+{% endif %}
